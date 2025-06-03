@@ -2,15 +2,13 @@ pipeline {
     agent any
 
     environment {
-        VENV_DIR = "venv"
+        VENV_DIR = 'venv'
     }
 
     tools {
         python 'python_version_3.8.1'  // Name must match what's configured in Jenkins > Global Tool Configuration
     }
-
     stages {
-
         stage('Setup Python Environment') {
             steps {
                 sh '''
@@ -30,15 +28,14 @@ pipeline {
                 '''
             }
         }
-
     }
 
     post {
         always {
-            echo "Pipeline completed."
+            echo 'Pipeline completed.'
         }
         failure {
-            echo "Something went wrong!"
+            echo 'Something went wrong!'
         }
     }
 }
